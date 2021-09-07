@@ -105,7 +105,7 @@ public class IntList {
             return B;
         }
         IntList newIntList = new IntList(A.first, A.rest);
-        newIntList.rest = dcatenate(newIntList.rest, B);
+        newIntList.rest = catenate(newIntList.rest, B);
         return newIntList;
     }
 
