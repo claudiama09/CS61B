@@ -1,4 +1,5 @@
 /* Double-Ended Queue*/
+@SuppressWarnings("unchecked")
 public class LinkedListDeque<T> {
     class Node {
 
