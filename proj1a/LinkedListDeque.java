@@ -131,7 +131,7 @@ public class LinkedListDeque<T> {
             return null;
         }
 
-        return recursive(p.value, index);
+        return recursive(p, index);
 
     }
 
