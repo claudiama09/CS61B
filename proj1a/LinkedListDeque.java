@@ -1,13 +1,13 @@
 /* Double-Ended Queue*/
 public class LinkedListDeque<T> {
-    private class Node {
+    class Node {
 
         private Node prev;
         private Node next;
         private T value;
         private String v;
 
-        public Node() {
+        private Node() {
 
         }
 
@@ -23,18 +23,19 @@ public class LinkedListDeque<T> {
     public LinkedListDeque() {
         sentinel = new Node();
         sentinel.v = "sentinel";
-        sentinel.next = sentinel;
-        sentinel.prev = sentinel;
+        sentinel.next = null;
+        sentinel.prev = null;
     }
 
     public void addFirst(T value) {
         Node itemNode = new Node(value);
         Node p = sentinel;
 
-        if (p.next != p) {
+        if (p.next != null) {
+            p.next.prev = itemNode;
+            itemNode.next = p.next;
             p.next = itemNode;
             itemNode.prev = p;
-            p.prev = itemNode;
         }
 
         p.next = itemNode;
@@ -42,14 +43,13 @@ public class LinkedListDeque<T> {
         itemNode.prev = p;
         itemNode.next = p;
         size += 1;
-
     }
 
     public void addLast(T value) {
         Node itemNode = new Node(value);
         Node p = sentinel;
 
-        if (p.next == p) {
+        if (p.next == null) {
             p.next = itemNode;
             p.next.prev = p;
         }

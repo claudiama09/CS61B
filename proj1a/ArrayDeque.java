@@ -70,7 +70,7 @@ public class ArrayDeque<T> {
 
     }
 
-    public void resizeWithDecrease() {
+    private void resizeWithDecrease() {
         if (items.length < 16) {
             return;
         }
