@@ -1,7 +1,7 @@
 /* Double-Ended Queue*/
 @SuppressWarnings("unchecked")
 public class LinkedListDeque<T> {
-    class Node {
+    private class Node {
 
         private Node prev;
         private Node next;
@@ -112,7 +112,7 @@ public class LinkedListDeque<T> {
         return (T) lastNode;
     }
 
-    public Node get(int index) {
+    public T get(int index) {
         Node p = sentinel;
         int i = 0;
         if (index > size) {
@@ -122,22 +122,22 @@ public class LinkedListDeque<T> {
             p = p.next;
             i += 1;
         }
-        return p;
+        return p.value;
     }
 
-    public Node getRecursive(int index) {
+    public T getRecursive(int index) {
         Node p = sentinel;
         if (index < 0 || index > size - 1) {
             return null;
         }
 
-        return recursive(p, index);
+        return recursive(p.value, index);
 
     }
 
-    private Node recursive(Node n, int index) {
+    private T recursive(Node n, int index) {
         if (index < 0) {
-            return n;
+            return n.value;
         }
         return recursive(n.next, index - 1);
     }
