@@ -113,10 +113,38 @@ public class ArrayDeque<T> {
     }
 
     public T get(int index) {
-        return items[index - 1];
+        if (isEmpty()) {
+            return null;
+        }
+
+        int n = nextFirst + 1 + index;
+
+        if (n < items.length) {
+            return items[n];
+        } else {
+            return items[n - items.length];
+        }
     }
 
     public void printDeque() {
+        boolean flag = true;
+        int first = nextFirst + 1;
+        int last = nextLast;
+
+        while (flag) {
+            System.out.print(items[first]);
+            first += 1;
+
+            if (first == items.length - 1) {
+                first = 0;
+            }
+
+            if (first == last) {
+                flag = false;
+            }
+            System.out.println();
+        }
+
 
     }
 
