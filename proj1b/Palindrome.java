@@ -1,5 +1,3 @@
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-
 public class Palindrome {
     public Deque<Character> wordToDeque(String word) {
         Deque<Character> arrayList = new ArrayDeque<Character>();
@@ -9,7 +7,6 @@ public class Palindrome {
         return arrayList;
     }
 
-    @SuppressFBWarnings({"RC_REF_COMPARISON", "ICAST_IDIV_CAST_TO_DOUBLE", "UC_USELESS_CONDITION"})
     public boolean isPalindrome(String word) {
         Deque<Character> wordDeque = wordToDeque(word);
 
@@ -18,14 +15,6 @@ public class Palindrome {
         if (size <= 1) {
             return true;
         }
-//
-//        for (int i = 0; i < Math.floor(size / 2); i++) {
-//            if (wordDeque.removeFirst() != wordDeque.removeLast()) {
-//                return false;
-//            }
-//        }
-//
-//        return true;
 
         return isPalindromeHelper(wordDeque, 0, size - 1);
 
